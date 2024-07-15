@@ -1,13 +1,13 @@
 import { Image, Text, View } from "react-native";
 
-interface TabIcon {
+interface TabIconProps {
   icon: ImageData;
   color: string;
   name: string;
   focused: boolean;
 }
 
-export default function TabIcon({ icon, color, name, focused }: TabIcon) {
+export default function TabIcon({ icon, color, name, focused }: TabIconProps) {
   return (
     <View className="items-center justify-center gap-2">
       <Image

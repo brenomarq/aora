@@ -1,4 +1,4 @@
-import TabIcon from "@/components/tab-icon";
+import TabIcon from "@/components/TabIcon";
 import { icons } from "@/constants";
 import { Tabs } from "expo-router";
 

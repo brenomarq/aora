@@ -1,9 +1,9 @@
 export const colors = {
   primary: "#161622",
   secondary: {
-    DEFAULT: "FF9C01",
-    100: "FF9001",
-    200: "#232533",
+    DEFAULT: "#FF9C01",
+    100: "#FF9001",
+    200: "#FF8E01",
   },
   black: {
     DEFAULT: "#000",
