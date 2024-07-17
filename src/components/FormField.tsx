@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  NativeSyntheticEvent,
+  Text,
+  TextInput,
+  TextInputChangeEventData,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { icons } from "@/constants";
 
@@ -7,7 +15,7 @@ interface FormFieldProps {
   title: string;
   value: string;
   placeholder?: string;
-  handleChangeText: (e: any) => void;
+  handleChangeText: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
   otherStyles?: string;
   keyboardType?: string;
 }

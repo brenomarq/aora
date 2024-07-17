@@ -6,6 +6,10 @@ import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
+  // Implement the context feature
+
+  // const { isLoading, isLoggedIn } = useGlobalContext();
+
   return (
     <SafeAreaView className="h-full" style={{ backgroundColor: "#161622" }}>
       <ScrollView contentContainerStyle={{ height: "100%" }}>

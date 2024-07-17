@@ -1,3 +1,4 @@
+import GlobalProvider from "@/context/GlobalProvider";
 import "@/styles/global.css";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
@@ -17,11 +18,13 @@ export default function RootLayout() {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      {/* <Stack.Screen name="search" options={{ headerShown: false }} /> */}
-    </Stack>
+    <GlobalProvider>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="search" options={{ headerShown: false }} /> */}
+      </Stack>
+    </GlobalProvider>
   );
 }

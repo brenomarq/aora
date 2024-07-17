@@ -13,6 +13,7 @@
     "expo-env.d.ts",
     "tailwind.config.js",
     "src/constants/icons.js",
-    "src/constants/images.js"
+    "src/constants/images.js",
+    "src/context/GlobalProvider.jsx"
   ]
 }
