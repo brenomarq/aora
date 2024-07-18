@@ -4,11 +4,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import CustomButton from "@/components/CustomButton";
 import { images } from "@/constants";
+import { useGlobalContext } from "@/context/GlobalProvider";
 import { createUser } from "@/lib/appwrite";
 import { Link, router } from "expo-router";
 import { useState } from "react";
 
 export default function SignUp() {
+  const { setUser, setIsLoggedIn } = useGlobalContext();
+
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -28,8 +31,8 @@ export default function SignUp() {
 
     try {
       const result = await createUser(email, password, username);
-
-      // set it to global state
+      setUser(result);
+      setIsLoggedIn(true);
 
       router.replace("/home");
     } catch (err: any) {

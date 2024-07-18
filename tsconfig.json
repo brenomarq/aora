@@ -14,6 +14,6 @@
     "tailwind.config.js",
     "src/constants/icons.js",
     "src/constants/images.js",
-    "src/context/GlobalProvider.jsx"
+    "src/context/GlobalProvider.tsx"
   ]
 }
