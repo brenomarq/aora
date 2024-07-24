@@ -21,7 +21,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.jsm.aora"
+      "package": "com.jsm.aora",
+      "permissions": ["INTERNET"]
     },
     "web": {
       "bundler": "metro",

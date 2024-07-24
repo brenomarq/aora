@@ -1,32 +1,40 @@
 import EmptyState from "@/components/EmptyState";
 import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
+import VideoCard from "@/components/VideoCard";
 import { images } from "@/constants";
+import { getAllPosts, getLatestPosts } from "@/lib/appwrite";
+import useAppWrite from "@/lib/useAppwrite";
 import { useState } from "react";
 import { FlatList, Image, RefreshControl, Text, View } from "react-native";
+import { Models } from "react-native-appwrite";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const fakeData = [{ id: 1 }, { id: 2 }, { id: 3 }];
-
 export default function Home() {
+  const { data: posts, refetch } = useAppWrite<Models.Document>(getAllPosts);
+  const { data: latestPosts } = useAppWrite<Models.Document>(getLatestPosts);
+
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
     setRefreshing(true);
-    // re call videos -> if any new videos appear
+    await refetch();
     setRefreshing(false);
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#161622", height: "100%" }}>
+    <SafeAreaView style={{ backgroundColor: "#161622", flex: 1 }}>
       <FlatList
-        data={fakeData}
+        data={posts}
         keyExtractor={(item: any) => item.$id}
         renderItem={({ item }) => {
           return (
-            <Text key={item.id} className="text-3xl text-white">
-              {item.id}
-            </Text>
+            <VideoCard
+              title={item.title}
+              thumbnail={item.thumbnail}
+              video={item.video}
+              users={item.users}
+            />
           );
         }}
         ListHeaderComponent={() => {
@@ -58,7 +66,7 @@ export default function Home() {
                   Latest Videos
                 </Text>
 
-                <Trending posts={[{ id: 1 }, { id: 2 }, { id: 3 }] ?? []} />
+                <Trending posts={latestPosts ?? []} />
               </View>
             </View>
           );

@@ -12,8 +12,8 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "tailwind.config.js",
-    "src/constants/icons.js",
-    "src/constants/images.js",
+    "src/constants/icons.ts",
+    "src/constants/images.ts",
     "src/context/GlobalProvider.tsx"
   ]
 }

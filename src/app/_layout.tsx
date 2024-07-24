@@ -1,7 +1,11 @@
 import GlobalProvider from "@/context/GlobalProvider";
 import "@/styles/global.css";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
+import { useEffect } from "react";
+import "react-native-gesture-handler";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded, error] = useFonts({
@@ -14,6 +18,12 @@ export default function RootLayout() {
     "Poppins-SemiBold": require("@/assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("@/assets/fonts/Poppins-Thin.ttf"),
   });
+
+  useEffect(() => {
+    if (error) throw error;
+
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error]);
 
   if (!fontsLoaded && !error) return null;
 
