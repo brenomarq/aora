@@ -11,9 +11,10 @@ import {
 import CustomButton from "@/components/CustomButton";
 import { images } from "@/constants";
 import { useGlobalContext } from "@/context/GlobalProvider";
-import { signIn } from "@/lib/appwrite";
+import { getCurrentUser, signIn } from "@/lib/appwrite";
 import { Link, router } from "expo-router";
 import { useState } from "react";
+import { Models } from "react-native-appwrite";
 
 export default function SignIn() {
   const { setUser, setIsLoggedIn } = useGlobalContext();
@@ -35,8 +36,9 @@ export default function SignIn() {
     setIsSubmitting(true);
 
     try {
-      const result = await signIn(email, password);
-      setUser(result);
+      await signIn(email, password);
+      const result = await getCurrentUser();
+      setUser(result as Models.Document);
       setIsLoggedIn(true);
 
       router.replace("/home");

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Image, TextInput, TouchableOpacity, View } from "react-native";
 
 interface SearchInput {
-  initialQuery: string;
+  initialQuery?: string;
   placeholder?: string;
 }
 

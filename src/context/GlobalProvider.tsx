@@ -13,8 +13,8 @@ import { Models } from "react-native-appwrite";
 export interface GlobalContextType {
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
-  user: Models.Document | Models.Session | null;
-  setUser: (user: Models.Document | Models.Session | null) => void;
+  user: Models.Document | undefined;
+  setUser: (user: Models.Document | undefined) => void;
   isLoading: boolean;
 }
 
@@ -35,9 +35,7 @@ interface GlobalProviderProps {
 
 export default function GlobalProvider({ children }: GlobalProviderProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState<Models.Document | Models.Session | null>(
-    null
-  );
+  const [user, setUser] = useState<Models.Document | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -48,7 +46,7 @@ export default function GlobalProvider({ children }: GlobalProviderProps) {
           setUser(res);
         } else {
           setIsLoggedIn(false);
-          setUser(null);
+          setUser(undefined);
         }
       })
       .catch((error) => {
