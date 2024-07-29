@@ -3,8 +3,7 @@ import { images } from "@/constants";
 import { useGlobalContext } from "@/context/GlobalProvider";
 import { Redirect, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { Image, ScrollView, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 
 export default function App() {
   // Implement the context feature
@@ -15,7 +14,7 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView className="h-full" style={{ backgroundColor: "#161622" }}>
+    <SafeAreaView className="h-full bg-primary">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
         <View className="w-full items-center justify-center h-full px-4">
           <Image

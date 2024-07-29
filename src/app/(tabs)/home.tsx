@@ -6,9 +6,15 @@ import { images } from "@/constants";
 import { getAllPosts, getLatestPosts } from "@/lib/appwrite";
 import useAppWrite from "@/lib/useAppwrite";
 import { useState } from "react";
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  RefreshControl,
+  SafeAreaView,
+  Text,
+  View,
+} from "react-native";
 import { Models } from "react-native-appwrite";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
   const { data: posts, refetch } = useAppWrite<Models.Document>(getAllPosts);
@@ -23,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#161622", flex: 1 }}>
+    <SafeAreaView className="flex-1 bg-primary">
       <FlatList
         data={posts}
         keyExtractor={(item: any) => item.$id}

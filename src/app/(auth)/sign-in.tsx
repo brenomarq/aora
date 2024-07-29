@@ -1,6 +1,12 @@
 import FormField from "@/components/FormField";
-import { Alert, Image, ScrollView, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  Alert,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 
 import CustomButton from "@/components/CustomButton";
 import { images } from "@/constants";
@@ -42,12 +48,7 @@ export default function SignIn() {
   };
 
   return (
-    <SafeAreaView
-      style={{
-        backgroundColor: "#161622",
-        height: "100%",
-      }}
-    >
+    <SafeAreaView className="h-full bg-primary">
       <ScrollView>
         <View className="w-full justify-center min-h-[85vh] px-4 my-6">
           <Image
