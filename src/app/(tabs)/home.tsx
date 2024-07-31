@@ -7,15 +7,9 @@ import { useGlobalContext } from "@/context/GlobalProvider";
 import { getAllPosts, getLatestPosts } from "@/lib/appwrite";
 import useAppWrite from "@/lib/useAppwrite";
 import { useState } from "react";
-import {
-  FlatList,
-  Image,
-  RefreshControl,
-  SafeAreaView,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, Image, RefreshControl, Text, View } from "react-native";
 import { Models } from "react-native-appwrite";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home() {
   const { user } = useGlobalContext();
@@ -31,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#161622" }}>
       <FlatList
         data={posts}
         keyExtractor={(item: any) => item.$id}

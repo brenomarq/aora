@@ -68,7 +68,7 @@ export default function SignUp() {
             handleChangeText={(e) => {
               setForm({
                 ...form,
-                username: e.nativeEvent.text,
+                username: e,
               });
             }}
             otherStyles="mt-10"
@@ -80,7 +80,7 @@ export default function SignUp() {
             handleChangeText={(e) =>
               setForm({
                 ...form,
-                email: e.nativeEvent.text,
+                email: e,
               })
             }
             otherStyles="mt-7"
@@ -93,7 +93,7 @@ export default function SignUp() {
             handleChangeText={(e) =>
               setForm({
                 ...form,
-                password: e.nativeEvent.text,
+                password: e,
               })
             }
             otherStyles="mt-7"

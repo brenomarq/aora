@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-  Image,
-  NativeSyntheticEvent,
-  Text,
-  TextInput,
-  TextInputChangeEventData,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import { icons } from "@/constants";
 
@@ -15,7 +7,7 @@ interface FormFieldProps {
   title: string;
   value: string;
   placeholder?: string;
-  handleChangeText: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
+  handleChangeText: (e: string) => void;
   otherStyles?: string;
   keyboardType?: string;
 }
@@ -43,7 +35,7 @@ export default function FormField({
           value={value}
           placeholder={placeholder}
           placeholderTextColor="#7B7B8B"
-          onChange={handleChangeText}
+          onChangeText={handleChangeText}
           secureTextEntry={title === "Password" && !showPassword}
         />
 

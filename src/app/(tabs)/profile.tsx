@@ -6,14 +6,9 @@ import { useGlobalContext } from "@/context/GlobalProvider";
 import { getUserPosts, signOut } from "@/lib/appwrite";
 import useAppWrite from "@/lib/useAppwrite";
 import { router } from "expo-router";
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, Image, TouchableOpacity, View } from "react-native";
 import { Models } from "react-native-appwrite";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Profile() {
   const { user, setUser, setIsLoggedIn } = useGlobalContext();
@@ -27,13 +22,13 @@ export default function Profile() {
 
   const logout = async () => {
     await signOut();
-    setUser(null);
+    setUser(undefined);
     setIsLoggedIn(false);
     router.replace("/sign-in");
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-primary">
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#161622" }}>
       <FlatList
         data={posts}
         keyExtractor={(item: any) => item.$id}
